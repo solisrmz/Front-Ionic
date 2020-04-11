@@ -21,8 +21,12 @@ export class NoticiasService {
   listadoDeAutores() : Observable<Autor[]> {
     return this.http.get<Autor[]>("https://localhost:44358/api/noticia/listaAutores");
   }
-  
+
   agregarNoticia(noticia: Noticia): Observable<boolean>{
-    return this.http.post<boolean>("https://localhost:44358/api/noticia/agregar",noticia)
+    return this.http.post<boolean>("https://localhost:44358/api/noticia/agregar", noticia)
+  }
+
+  editarNoticia(noticia: Noticia): Observable<boolean>{
+    return this.http.put<boolean>("https://localhost:44358/api/noticia/editar", noticia)
   }
 }

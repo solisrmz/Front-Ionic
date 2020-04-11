@@ -38,7 +38,9 @@
           </ion-select>
     </ion-item>
   </ion-list>
-  <ion-button expand="block"  (click)="guardar()">Guardar</ion-button>
+  <ion-button expand="block"  *ngIf="!esEditable" (click)="guardar()">Guardar</ion-button>
+  <ion-button expand="block"  *ngIf="esEditable" (click)="editarNoticia()">Editar</ion-button>
+
 </ion-content>
 
 
