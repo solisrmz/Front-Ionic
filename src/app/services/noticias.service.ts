@@ -14,6 +14,6 @@ export class NoticiasService {
   }
   
   eliminarNoticia(noticiaID: number): Observable<boolean>{
-    return this.http.get<boolean>("https://localhost:44358/api/noticia/eliminar/" + noticiaID)
+    return this.http.delete<boolean>("https://localhost:44358/api/noticia/eliminar/" + noticiaID)
   }
 }

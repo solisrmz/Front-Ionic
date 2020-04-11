@@ -26,11 +26,11 @@ export class ListadoNoticiasPage implements OnInit {
       this.route.navigate(['noticia-detalle', {noticiaT: JSON.stringify(noticia)}])
   }
 
-  eliminarNoticia(noticiaID: number){
+  eliminarNoticia(noticiaID: number, indice: number){
     this.noticiaServicio.eliminarNoticia(noticiaID).subscribe(()=>{
+      this.noticias.splice(indice,1)
     },
     error=>{
-      console.log("No se puede")
     }
     )
   }
