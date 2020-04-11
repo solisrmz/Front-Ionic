@@ -7,17 +7,17 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card>
+
+  <ion-card *ngFor="let noticia of noticias">
     <ion-card-header>
-      <ion-card-title>Titulo</ion-card-title>
-      <ion-card-subtitle>Subtitulo</ion-card-subtitle>
+      <ion-card-title>{{noticia.titulo}}</ion-card-title>
+      <ion-card-subtitle>{{noticia.descripcion}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+      {{noticia.contenido}}
       <hr/>
-      <p><strong>Autor: </strong> Aquí va el autor</p>
-      <p><strong>Fecha: </strong> Aquí va la fecha</p>
+      <p><strong>Autor: </strong> {{noticia.autor.nombre}} {{noticia.autor.apellido}}</p>
+      <p><strong>Fecha: </strong> {{noticia.fecha | date}}</p>
     </ion-card-content>
   </ion-card>
 </ion-content>

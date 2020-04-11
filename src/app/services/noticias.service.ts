@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Noticia } from '../Models/noticia.model';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 export class NoticiasService {
 
   constructor(public http: HttpClient) { }
-  verNoticias() : Observable<any> {
-    return this.http.get<any>("https://localhost:44358/api/noticia/obtener");
+  verNoticias() : Observable<Noticia[]> {
+    return this.http.get<Noticia[]>("https://localhost:44358/api/noticia/obtener");
   }
 }
