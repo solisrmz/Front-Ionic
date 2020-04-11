@@ -7,17 +7,21 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-
   <ion-card *ngFor="let noticia of noticias">
-    <ion-card-header>
+    <ion-card-header (click)="irADetalle(noticia)">
       <ion-card-title>{{noticia.titulo}}</ion-card-title>
       <ion-card-subtitle>{{noticia.descripcion}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-card-content (click)="irADetalle(noticia)">
+    <ion-card-content>
       {{noticia.contenido}}
       <hr/>
       <p><strong>Autor: </strong> {{noticia.autor.nombre}} {{noticia.autor.apellido}}</p>
       <p><strong>Fecha: </strong> {{noticia.fecha | date}}</p>
-    </ion-card-content>
+      <hr/>
+      <ion-buttons slot="start">
+        <ion-button color="primary" fill="clear" (click)="eliminarNoticia(noticia.noticiaID)"><ion-icon name="share-social-outline"></ion-icon>Compartir</ion-button>
+        <ion-button color="success" fill="clear"><ion-icon name="bookmark-outline"></ion-icon>Guardar</ion-button>
+      </ion-buttons>
+    </ion-card-content> 
   </ion-card>
 </ion-content>

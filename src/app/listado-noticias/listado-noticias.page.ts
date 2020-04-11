@@ -21,7 +21,17 @@ export class ListadoNoticiasPage implements OnInit {
       console.log(error)
     })
   }
+
   irADetalle(noticia: Noticia){
       this.route.navigate(['noticia-detalle', {noticiaT: JSON.stringify(noticia)}])
+  }
+
+  eliminarNoticia(noticiaID: number){
+    this.noticiaServicio.eliminarNoticia(noticiaID).subscribe(()=>{
+    },
+    error=>{
+      console.log("No se puede")
+    }
+    )
   }
 }
