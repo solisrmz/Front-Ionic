@@ -13,7 +13,7 @@
       <ion-card-title>{{noticia.titulo}}</ion-card-title>
       <ion-card-subtitle>{{noticia.descripcion}}</ion-card-subtitle>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content (click)="irADetalle(noticia)">
       {{noticia.contenido}}
       <hr/>
       <p><strong>Autor: </strong> {{noticia.autor.nombre}} {{noticia.autor.apellido}}</p>

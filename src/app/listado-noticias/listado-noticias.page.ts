@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticiasService } from '../services/noticias.service';
 import { Noticia } from '../Models/noticia.model';
+import {Router, Route} from '@angular/router';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-listado-noticias',
@@ -9,7 +11,7 @@ import { Noticia } from '../Models/noticia.model';
 })
 export class ListadoNoticiasPage implements OnInit {
   noticias: Noticia[];
-  constructor(private noticiaServicio : NoticiasService) { }
+  constructor(private noticiaServicio : NoticiasService, private route: Router) { }
 
   ngOnInit() {
     this.noticiaServicio.verNoticias().subscribe((noticias) =>{
@@ -18,5 +20,8 @@ export class ListadoNoticiasPage implements OnInit {
     }, (error)=>{
       console.log(error)
     })
+  }
+  irADetalle(noticia: Noticia){
+      this.route.navigate(['noticia-detalle', {noticiaT: JSON.stringify(noticia)}])
   }
 }

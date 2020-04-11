@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'listado-noticias',
     loadChildren: () => import('./listado-noticias/listado-noticias.module').then( m => m.ListadoNoticiasPageModule)
+  },
+  {
+    path: 'noticia-detalle',
+    loadChildren: () => import('./noticia-detalle/noticia-detalle.module').then( m => m.NoticiaDetallePageModule)
   }
 ];
 
