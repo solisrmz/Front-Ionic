@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar >
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title *ngIf="!esEditable">Agregar</ion-title>
+    <ion-title *ngIf="esEditable">Editar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list >
+    <ion-item >
+      <ion-label position="floating">Titulo</ion-label>
+      <ion-input [(ngModel)]="noticia.titulo" placeholder="Ingrese un titulo"></ion-input>
+    </ion-item>
+
+    <ion-item >
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-textarea [(ngModel)]="noticia.descripcion" rows="4" placeholder="Ingrese una descripción"></ion-textarea>
+    </ion-item>
+
+    <ion-item >
+        <ion-label position="floating">Contenido</ion-label>
+        <ion-textarea [(ngModel)]="noticia.contenido" rows="6" placeholder="Ingrese su contenido"></ion-textarea>
+    </ion-item>
+
+    <ion-item >
+        <ion-label position="floating">Fecha</ion-label>
+        <ion-datetime [(ngModel)]="noticia.fecha" display-format="DD,MMM, YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item *ngIf="noticia">
+        <ion-label  position="floating">Autor</ion-label>
+        <ion-select  [(ngModel)]="noticia.autorID" placeholder="Seleccione un Autor" interface="popover">
+            <ion-select-option *ngFor="let autor of autores"  [value]="autor.autorID">{{autor.nombre}} {{autor.apellido}}</ion-select-option>
+          </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block"  (click)="guardar()">Guardar</ion-button>
+</ion-content>
+
+

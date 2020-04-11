@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Noticia } from '../Models/noticia.model';
+import { Autor } from '../Models/autor.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,13 @@ export class NoticiasService {
   
   eliminarNoticia(noticiaID: number): Observable<boolean>{
     return this.http.delete<boolean>("https://localhost:44358/api/noticia/eliminar/" + noticiaID)
+  }
+
+  listadoDeAutores() : Observable<Autor[]> {
+    return this.http.get<Autor[]>("https://localhost:44358/api/noticia/listaAutores");
+  }
+  
+  agregarNoticia(noticia: Noticia): Observable<boolean>{
+    return this.http.post<boolean>("https://localhost:44358/api/noticia/agregar",noticia)
   }
 }
